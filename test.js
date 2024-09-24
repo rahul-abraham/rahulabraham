@@ -1,5 +1,5 @@
-// Define the outerHTML content once
-var updatedOuterHTML = `
+// Define the innerHTML content once
+var updatedInnerHTML = `
     <div class="sc-banner-slider">
         saasdasdasd sdasdasd
     </div>
@@ -81,7 +81,7 @@ if (display) {
                 el.style.height = "0px";
                 if (!el.classList.contains("updatedCode")) {
                     try {
-                        el.outerHTML = updatedOuterHTML;
+                        el.innerHTML = updatedInnerHTML;
                         document.querySelector(".sc-banner-slider .sc-inline-buttons a").addEventListener("click", function (event) { 
                             event.preventDefault(); 
                             event.stopPropagation(); 
@@ -102,12 +102,12 @@ if (display) {
     );
 }
 
-// New code specifically for the URL: https://www.sc.com/sg/borrow/loans/cashone/
-if (window.location.href === "https://www.sc.com/sg/borrow/loans/cashone/") {
+// New code specifically for URLs containing "https://www.sc.com/sg/borrow/loans/cashone/"
+if (window.location.href.includes("https://www.sc.com/sg/borrow/loans/cashone/")) {
     var element = document.querySelector("#sc-lb-module-masthead-slider");
     if (element) {
         try {
-            element.outerHTML = updatedOuterHTML;
+            element.innerHTML = updatedInnerHTML;
             // Add event listener or any other code specific to this URL
             document.querySelector(".sc-banner-slider .sc-inline-buttons a").addEventListener("click", function (event) { 
                 event.preventDefault(); 
@@ -127,3 +127,4 @@ if (window.location.href === "https://www.sc.com/sg/borrow/loans/cashone/") {
         console.log("Element with ID #sc-lb-module-masthead-slider not found on the CashOne page.");
     }
 }
+sdadas
