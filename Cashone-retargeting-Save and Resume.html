@@ -18,6 +18,15 @@
         padding-top: 0;
     }
 
+    .sc-cashone-pl-calc-variant .sc-badge::before{
+        content: none !important;
+    }
+
+    .sc-banner-przn-block__col-wrapper{
+        padding: 0 !important;
+    }
+
+
     @media (max-width:681px) {
         .sc-cashone-pl-calc-variant .sc-tooltip__text--bottom {
             height: 105px;
@@ -1324,7 +1333,7 @@
               </div>
               <ul class="sc-inline-buttons">
                 <li class="sc-inline-buttons__item ">
-                  <a href="https://ob.sc.com/sg/resume.html" title="Learn More"
+                  <a href="https://ob.sc.com/sg/resume.html" title="Resume Application"
                     data-context="CashOne Personal Loan - Resume Application" class="sc-btn" target="_blank">
                     <span class="sc-only-desktop">Resume Application</span>
                     <span class="sc-only-mobile">Resume Application</span>
@@ -1532,7 +1541,7 @@
 
     // New code specifically for URLs containing "https://www.sc.com/sg/borrow/loans/cashone/"
     if (window.location.href.includes("https://www.sc.com/sg/borrow/loans/cashone/")) {
-        var element = document.querySelector("#sc-lb-module-accordian");
+        var element = document.querySelector("#sc-lb-module-masthead-slider");
         if (element) {
             try {
                 element.innerHTML = updatedInnerHTML;
@@ -1556,4 +1565,275 @@
         }
     }
 
+</script>
+
+
+<!-- BELOW ARE THE CODE FOR PERSISTENT BAR BELOW THE NAVBAR -->
+
+<style>
+    .sc-infobar-resume {
+        display: flex;
+        padding: 14px 0;
+        background: linear-gradient(90deg, #5166A7, #3E79C5);
+        letter-spacing: 0.5px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        position: sticky;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        transition: top .3s ease-in-out;
+    }
+
+    .sc-meganav--sticky~.sc-infobar-resume {
+        top: 70px;
+    }
+
+    .sc-infobar-resume__content {
+        max-width: 1404px;
+        width: 100%;
+        display: flex;
+        padding: 0 10px;
+        align-items: center;
+    }
+
+    .sc-infobar-resume__dismiss {
+        width: 18px;
+        height: 18px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #fff;
+        margin-left: 10px;
+        border-radius: 50%;
+        background: #fff;
+        cursor: pointer;
+    }
+
+    .sc-infobar-resume__dismiss:hover {
+        background: rgb(255 255 255 / 90%);
+    }
+
+    .sc-infobar-resume__dismiss svg {
+        fill: #5166A7;
+        width: 12px;
+        height: 12px;
+    }
+
+    .sc-infobar-resume__title {
+        font-size: 14px;
+        line-height: 17px;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding-right: 16px;
+        margin-bottom: 0px;
+        flex: 1;
+    }
+
+    .sc-infobar-resume__title .sc-infobar-resume__icon {
+        margin-right: 8px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .sc-infobar-resume .buttons {
+        display: flex;
+    }
+
+    .sc-infobar-resume .buttons li {
+        margin-left: 8px;
+    }
+
+    .sc-infobar-resume__button-link {
+        padding: 8px 16px;
+        font-size: 13px;
+        color: #fff;
+        border: 2px solid #fff;
+        background-color: transparent;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all .3s ease-in-out;
+        display: inline-flex;
+    }
+
+    .sc-infobar-resume__button-link:hover {
+        background-color: #fff;
+        color: #5166A7;
+    }
+
+    .sc-infobar-resume__button-link.sc-infobar-resume__button-dismiss {
+        padding: 2px 4px;
+        border: 1px solid #fff;
+        margin-left: 10px;
+        border-radius: 50%;
+        background: #fff;
+        cursor: pointer;
+    }
+
+    .sc-infobar-resume__button-link.sc-infobar-resume__button-dismiss svg {
+        fill: #5166A7;
+        width: 16px;
+        height: 16px;
+    }
+
+    .sc-infobar-resume .sc-infobar-resume__title .only-mobile {
+        text-align: left;
+    }
+
+    @media (min-width: 1247px) {
+        .sc-infobar-resume {
+            top: 100px;
+        }
+
+        .sc-meganav--sticky~.sc-infobar-resume {
+            top: 56px;
+        }
+    }
+
+    @media (max-width: 1247px) {
+        .sc-meganav-infobar {
+            position: static !important;
+        }
+
+        .sc-meganav-infobar~.sc-infobar-resume {
+            top: 0 !important;
+        }
+    }
+
+
+    @media (min-width: 768px) {
+        .sc-infobar-resume__title {
+            font-size: 16px;
+            margin-bottom: 0
+        }
+
+        .sc-infobar-resume .buttons li {
+            margin-left: 8px;
+        }
+
+        .sc-infobar-resume__content {
+            padding: 0 30px;
+        }
+
+        .sc-infobar-resume__dismiss {
+            margin-left: 20px;
+            width: 21px;
+            height: 21px;
+        }
+
+        .sc-infobar-resume__dismiss svg {
+            fill: #5166A7;
+            width: 13px;
+            height: 13px;
+        }
+
+    }
+</style>
+<script>
+    var resumeNotifications = '${profile.resumeNotifications}' || 'true';
+    (function () {
+        Flickerlessly = window.Flickerlessly || {}; !function (A) { "use strict"; var init = function (id, sel, callback, persist) { var animationName = 'atNodeInserted' + id; var cssStr = '@keyframes ' + animationName + ' {from {opacity:0.99} to {opacity:1} }\n'; cssStr += sel + '{animation-duration:0.001s;animation-name:' + animationName + ';visibility:hidden}'; var head = document.getElementsByTagName("head")[0]; if (head) { var style = document.createElement("style"); style.setAttribute("type", "text/css"); if (style.styleSheet) style.styleSheet.cssText = cssStr; else style.appendChild(document.createTextNode(cssStr)); head.insertBefore(style, head.firstChild) }; var _insertListener = function (event) { if (event.animationName === animationName && typeof event.target === 'object') { var isExecute = ((persist === true) || (persist === false && event.target.getAttribute('data-flk-success') === null)) ? true : false; if (console && console.info) console.info("Node " + sel + " ready! Execute: " + isExecute, event.target); if (typeof callback === 'function' && isExecute) { callback(event.target); event.target.setAttribute('data-flk-success', animationName); } event.target.style.visibility = 'visible'; } };['animationstart', 'MSAnimationStart', 'webkitAnimationStart'].forEach(function (item, index) { document.addEventListener(item, _insertListener, false); }); }; A.onReady = function () { for (var i = 0; i < arguments.length; i++) { var obj = arguments[i]; var selector = obj.selector; var success = obj.success || null; var persist = obj.persist || false; var rand = Math.floor((Math.random() * 100) + 1); init(rand, selector, success, persist); }; }; }(Flickerlessly);
+        Flickerlessly.onReady(
+            {
+                selector: "body > header",
+                persist: true,
+                success: function (el2) {
+                    // Check if the current time is already stored in local storage
+                    var currentTime = new Date().getTime();
+                    var resumeStoredTime = localStorage.getItem('CashoneResumeStoredTime');
+                    var resumeDismissed = localStorage.getItem('CashoneTransferResumeDismissed');
+
+                    if (resumeDismissed === '1') {
+                        return;
+                    }
+
+                    if (resumeStoredTime == null) {
+                        // If no time is stored, store the current time
+                        localStorage.setItem('CashoneResumeStoredTime', currentTime);
+                    } else {
+                        // If a time is already stored, check if experience have lapsed
+                        var elapsed = currentTime - resumeStoredTime;
+                        var fourDaysInMilliseconds = 7 * 24 * 60 * 60 * 1000;
+                        if (elapsed >= fourDaysInMilliseconds) {
+                            // If lapsed, hide the header element
+                            return;
+                        }
+                    }
+
+                    if (!document.querySelector("body > header").classList.contains("adbe-cls")) {
+                        var html_contentbar = `
+                        <div class="sc-infobar-resume">
+                            <div class="sc-infobar-resume__content">
+                                <p class="sc-infobar-resume__title"><span class="sc-infobar-resume__icon"><svg width="25" height="26"
+                                            viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M12.2758 22.0819C17.2892 22.0819 21.3534 18.0178 21.3534 13.0043C21.3534 7.99093 17.2892 3.92676 12.2758 3.92676C7.26242 3.92676 3.19824 7.99093 3.19824 13.0043C3.19824 18.0178 7.26242 22.0819 12.2758 22.0819Z"
+                                                stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M11.5193 12.248H12.2758V17.5433H13.0322" stroke="white" stroke-width="1.8"
+                                                stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path
+                                                d="M12.2758 9.97838C12.9025 9.97838 13.4105 9.47036 13.4105 8.84368C13.4105 8.21701 12.9025 7.70898 12.2758 7.70898C11.6491 7.70898 11.1411 8.21701 11.1411 8.84368C11.1411 9.47036 11.6491 9.97838 12.2758 9.97838Z"
+                                                fill="white"></path>
+                                        </svg></span><span class="only-desktop sc-only-desktop">You have a saved application for CashOne Personal Loan. Pick up
+                                        where you left off.</span> <span class="only-mobile sc-only-mobile">You have a saved application for CashOne Personal
+                                        Loan.</span></p>
+                                <ul class="buttons">
+                                    <li> <a href="https://ob.sc.com/sg/resume" title="Resume Your Application" data-context="Persistent Bar CTA"
+                                            class="sc-infobar-resume__button-link"
+                                            target="_blank"> <span class="only-desktop">Resume Your Application</span><span
+                                                class="only-mobile">Resume</span></a></li>
+                                </ul>
+                                <div class="sc-infobar-resume__dismiss" title="Dismiss"><svg xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" height="18" width="18">
+                                        <g>
+                                            <path fill="none" d="M0 0h24v24H0z"></path>
+                                            <path
+                                                d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z">
+                                            </path>
+                                        </g>
+                                    </svg></div>
+                            </div>
+                        </div>
+                         `;
+                        document.querySelector("body > header").insertAdjacentHTML("afterend", html_contentbar);
+
+                        document.querySelector("body > div.sc-infobar-resume ul > li > a[href*='https://ob.sc.com/sg/resume'i]").addEventListener("mousedown", function () {
+                            adobe.target.trackEvent({
+                                "mbox": "mboxClickTrack",
+                                "params": {
+                                    "clicked": "resumeApplicationCTA"
+                                }
+                            });
+                        });
+                        document.querySelector("body > header").classList.add("adbe-cls");
+
+
+                        var infoBar = document.querySelector('.sc-infobar-resume');
+                        var dismissBtn = document.querySelector('.sc-infobar-resume__dismiss');
+                        dismissBtn.addEventListener('click', function () {
+                            infoBar.style.setProperty("display", "none", "important");
+                            localStorage.setItem('CashoneTransferResumeDismissed', '1');
+                        })
+                    }
+                }
+            }
+        );
+
+    })();
+</script>
+
+<script>
+    (function () {
+        var url = window.location.href;
+        if (url.startsWith('https://www.sc.com/sg/') && url !== 'https://www.sc.com/sg/') {
+            var elements = document.querySelectorAll('.sc-meganav');
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].classList.add('sc-meganav-infobar');
+            }
+        }
+    })();      
 </script>
