@@ -3,26 +3,9 @@
 
 
 <style>
-    .sc-product-apply__loan-amount {
-        font-weight: bold;
-        color: #004ea6;
-    }
-
-    span.sc-product-apply__loan-tenor {
-        font-weight: bold;
-        color: #004ea6;
-    }
 
     .sc-banner-slider~.sc-quick-tools {
         padding-top: 0;
-    }
-
-    .sc-cashone-pl-calc-variant .sc-badge::before{
-        content: none !important;
-    }
-
-    .sc-banner-przn-block__col-wrapper{
-        padding: 0 !important;
     }
 
     @media (max-width:681px) {
@@ -32,18 +15,9 @@
         }
     }
 
-    @media (max-width: 680px) {
-        .sc-banner--no-mbl-img .sc-content-wrapper {
-            padding-top: 32px !important;
-            min-height: 250px !important;
-        }
-
-        .sc-banner--no-mbl-img .sc-banner__bg {
-            display: none;
-        }
+    .sc-banner-przn-block__col-wrapper{
+        padding: 0 !important;
     }
-
-
 
     /* sc-cashone-calculator-variant Start*/
     .sc-radio-box {
@@ -1267,488 +1241,448 @@
 
 
 <script>
-    // Define the innerHTML content once
-    var updatedInnerHTML = `
-<div class="sc-banner-slider">
-<div class="sc-banner sc-banner--product sc-banner--no-mbl-img" role="banner">
-    <picture>
-        <source srcset="https://av.sc.com/sg/content/images/PL_CashOne-Offer-Refresh-September_Adobe_SC-PDP_1600x490_right-aligned.png"
-            media="(min-width: 681px)" />
-        <source srcset="https://av.sc.com/sg/content/images/PL_CashOne-Offer-Refresh-September_Adobe_SC.com-Homepage_768x350_Mobile-13-09.png"
-            media="(max-width: 680px)" />
-        <img src="https://av.sc.com/sg/content/images/PL_CashOne-Offer-Refresh-September_Adobe_SC-PDP_1600x490_right-aligned.png"
-            class="sc-banner__bg" loading="lazy" alt="Blue" />
-    </picture>
-    <div class="sc-content-wrapper">
-        <div class="sc-banner__content">
-            <h2 class="sc-banner__title">Still considering? Apply now for up to 2.5% cashback on your loan</h2>
-            <div class="sc-banner__desc">
-                <p>Apply now for up to 2.5% cashback on your loan</p>
-            </div>
-            <div class="sc-banner-content__cvp-box">
-                <div class="sc-banner-content__cvp-title sc-rte">
-                    <p>Instant cash from 2.88% p.a. (EIR from 5.43% p.a.)</p>
-                    <p>Plus, get more back with our limited-time offer:</p>
-                    <ul>
-                        <li>2.5% cashback on your loan: S$50k or more</li>
-                        <li>2% cashback on your loan: S$40k to < S$50k</li>
-                        <li>1% cashback on your loan: S$15k to < S$40k</li>
-                    </ul>
-                
-                    <p>T&Cs apply.</p>
-                </div>
-            </div>
-            <ul class="sc-inline-buttons">
-                <li class="sc-inline-buttons__item ">
-                    <a href="https://ob.sc.com/sg/apply?product=280&campaign=9999"
-                        title="Continue Application" data-context="CashOne Personal Loan - Continue Application" class="sc-btn"
-                        target="_blank">
-                        <span class="sc-only-desktop">Continue Application</span>
-                        <span class="sc-only-mobile">Continue Application</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+    var offerExpirationTime = localStorage.getItem("offerExpirationTime");
+    var display = false;
+    let timeNow = new Date();
 
-<div class="sc-banner-przn-block">
-    <div class="sc-banner-przn-block__col sc-banner-przn-block__col--show">
-        <div class="sc-banner-przn-block__col-wrapper">
-            <div class="sc-cashone-pl-calc-variant sc-cashone-pl-calc-variant--is-border background-variant"
-                data-eir-fee="" data-apr="2.88" data-loan-period="yearly" data-cashback-multiplier="3"
-                data-cashback='{
-    "restricted": {
-        "min-amount": "15000",
-        "min-tenure": "3"
-    },
-    "unrestricted": {
-        "max-cashback": "4000",
-        "additional-amount": "100"
-    },
-    "cny": [
-        {
-        "min-amount": "0",
-        "max-amount": "14999",
-        "min-tenure": "3",
-        "max-tenure": "-1",
-        "infotext": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click here to enjoy 1% cashback, by increasing the loan amount to S$15,000 &raquo;</a>",
-        "infotext-below-amount-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click here to enjoy 1% cashback, by increasing the loan amount to S$15,000 with 3 years tenure or more &raquo;</a>",
-        "infotext-below-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click here to enjoy 1%. cashback, by increasing the loan tenure to 3 years or more &raquo;</a>",
-        "infoblockcolor": "right--gray",
-        "infobottomblockcolor": "--blue",
-        "spliderId":"#splide01",
-        "splideIndex":"0",
-        "cashbackRate": "0",
-        "infobottomblockimage": "https://av.sc.com/sg/content/images/cashone-calculator-gift-empty.png"
-        },
-        {
-        "min-amount": "15000",
-        "max-amount": "39999",
-        "min-tenure": "3",
-        "max-tenure": "-1",
-        "infotext": "<a class=&apos;nextlevelAmount&apos; data-nextLevelAmount=&apos;40000&apos;>Click here to enjoy 2% cashback by increasing loan amount to S$40,000 with 3 years tenure or more &raquo;</a>",
-        "infotext-below-amount-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click to meet the minimum S$15,000 loan amount and tenure of 3 years to enjoy 1% cashback Click now &raquo;</a>",
-        "infotext-below-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click here to enjoy 1% cashback, by increasing the loan tenure to 3 years or more &raquo;</a>",
-        "infoblockcolor": "default",
-        "infobottomblockcolor": "--blue",
-        "spliderId":"#splide01",
-        "splideIndex":"0",
-        "cashbackRate": "1",
-        "infobottomblockimage": "https://av.sc.com/sg/content/images/cashone-calculator-gift-empty.png"
-        },
-        {
-        "min-amount": "40000",
-        "max-amount": "49999",
-        "min-tenure": "3",
-        "max-tenure": "-1",
-        "infotext": "<a class=&apos;nextlevelAmount&apos; data-nextLevelAmount=&apos;50000&apos;>Click here to enjoy 2.5% cashback by increasing loan amount to S$50,000 with 3 years tenure or more &raquo;</a>",
-        "infotext-below-amount-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click to meet the minimum S$15,000 loan amount and tenure of 3 years to enjoy 1% cashback Click now &raquo;</a>",
-        "infotext-below-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click here to enjoy 2% cashback, by increasing the loan tenure to 3 years or more &raquo;</a>",
-        "infoblockcolor": "right--green-gradiant",
-        "infobottomblockcolor": "--blue",
-        "spliderId":"#splide01",
-        "splideIndex":"1",
-        "cashbackRate": "2",
-        "infobottomblockimage": "https://av.sc.com/sg/content/images/cashone-calculator-gift-empty.png"
-        },
-        {
-        "min-amount": "50000",
-        "max-amount": "250000",
-        "min-tenure": "3",
-        "max-tenure": "-1",
-        "infotext": "Congratulations! You will receive 2.5% cashback - our highest possible reward!",
-        "infotext-below-amount-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click to meet the minimum S$15,000 loan amount and tenure of 3 years to enjoy 1% cashback Click now &raquo;</a>",
-        "infotext-below-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click here to enjoy 2.5% cashback, by increasing the loan tenure to 3 years or more &raquo;</a>",
-        "infoblockcolor": "right--blue",
-        "infobottomblockcolor": "",
-        "spliderId":"#splide01",
-        "splideIndex":"2",
-        "cashbackRate": "2.5",
-        "infobottomblockimage": "https://av.sc.com/sg/content/images/cashone-calculator-gift.png"
+    if (offerExpirationTime) {
+        if (Number(offerExpirationTime) > timeNow.getTime()) {
+            //localStorage.setItem("offerExpirationTime", new Date().setTime(new Date().getTime() + 1 * 60000));
+            // uncomment the line below and comment line above to enable 7 days expiration logic
+            localStorage.setItem("offerExpirationTime", new Date().setDate(new Date().getDate() + 7));
+            display = true;
+            console.log("if", new Date(Number(localStorage.getItem("offerExpirationTime"))));
+        } else {
+            localStorage.removeItem("offerExpirationTime");
+            console.log("reset done");
         }
-    ]
-    }'>
-                <div class="sc-content-wrapper">
-                    <div class="sc-cashone-pl-calc-variant__container">
-                        <div class="sc-badge sc-badge--blue">
+    } else {
+        //localStorage.setItem("offerExpirationTime", new Date().setTime(new Date().getTime() + 1 * 60000));
+        // uncomment the line below and comment line above to enable 7 days expiration logic
+        localStorage.setItem("offerExpirationTime", new Date().setDate(new Date().getDate() + 7));
+        display = true;
+        console.log("(offerExpirationTime)", new Date(Number(localStorage.getItem("offerExpirationTime"))))
+    }
 
-                            <span class="sc-badge__text">Limited Time Offer</span>
-                        </div>
-                        <div class="sc-cashone-pl-calc-variant__left">
-                            <div class="sc-cashone-pl-calc-variant__slider sc-cashone-pl-calc-variant__slider-main">
-                                <div class="sc-cashone-pl-calc-variant__content">
-                                    <div class="sc-cashone-pl-calc-variant__box-left">
-                                        <h3 class="sc-cashone-pl-calc-variant__title">
-                                            Get loan amount of
-                                        </h3>
-                                    </div>
-                                    <div class="sc-cashone-pl-calc-variant__box-right">
-                                        S$
-                                        <input type="text" pattern="[0-9]+" inputmode="numeric"
-                                            class="sc-cashone-pl-calc-variant__input sc-cashone-pl-calc-variant__input--amount-value"
-                                            value="50,000" aria-label="Get loan amount of S$" data-max="250000"
-                                            data-min="1000" data-default="50,000" />
-                                    </div>
-                                </div>
-                                <div class="sc-cashone-pl-calc-variant__prompt-msg hide">
-                                    Please enter amount between 1000 and 250000
-                                </div>
-                                <div class="sc-cashone-pl-calc-variant__prompt-amountmsg defaultValues hide">
-                                    Increase to S$15,000 to enjoy Cashback
-                                </div>
-                            </div>
-                            <div class="sc-cashone-pl-calc-variant__slider sc-cashone-pl-calc-variant__slider-main">
-                                <div class="sc-cashone-pl-calc-variant__loan-amount">
-                                    <div class="sc-amount-box">
-                                        <input type="radio" class="sc-amount-box__input" id="loan-amount-box-2"
-                                            tabindex="-1" name="loan-amount-radio" value="15,000" />
-                                        <label class="sc-amount-box__input-label" for="loan-amount-box-2"
-                                            tabindex="0">
-                                            15,000
-                                        </label>
-                                        <span class="sc-tooltip__cashback">
-                                            1% cashback
-                                        </span>
-                                    </div>
-                                    <div class="sc-amount-box">
-                                        <input type="radio" class="sc-amount-box__input" id="loan-amount-box-3"
-                                            tabindex="-1" name="loan-amount-radio" value="40,000" />
-                                        <label class="sc-amount-box__input-label" for="loan-amount-box-3"
-                                            tabindex="0">
-                                            40,000
-                                        </label>
-                                        <span class="sc-tooltip__cashback">
-                                            2% cashback
-                                        </span>
-                                    </div>
-                                    <div class="sc-amount-box">
-                                        <input type="radio" class="sc-amount-box__input" id="loan-amount-box-4"
-                                            tabindex="-1" name="loan-amount-radio" value="50,000" />
-                                        <label class="sc-amount-box__input-label" for="loan-amount-box-4"
-                                            tabindex="0">
-                                            50,000
-                                        </label>
-                                        <span class="sc-tooltip__cashback">
-                                            2.5% cashback
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="sc-cashone-pl-calc-variant__slider sc-cashone-pl-calc-variant__slider-tenor">
-                                <div
-                                    class="sc-cashone-pl-calc-variant__content sc-cashone-pl-calc-variant__content-variant">
-                                    <h3 class="sc-cashone-pl-calc-variant__title">
-                                        Loan period
-                                    </h3>
-                                </div>
-                                <div class="sc-cashone-pl-calc-variant__loan-period">
-                                    <div class="sc-radio-box">
-                                        <input type="radio" class="sc-radio-box__input" id="check-box-1"
-                                            tabindex="-1" name="checkbox-radio" value="1" />
-                                        <label class="sc-radio-box__input-label" for="check-box-1" tabindex="0">
-                                            1
-                                        </label>
-                                    </div>
-                                    <div class="sc-radio-box">
-                                        <input type="radio" class="sc-radio-box__input" id="check-box-2"
-                                            tabindex="-1" name="checkbox-radio" value="2" />
-                                        <label class="sc-radio-box__input-label" for="check-box-2" tabindex="0">
-                                            2
-                                        </label>
-                                    </div>
-                                    <div class="sc-radio-box">
-                                        <input type="radio" class="sc-radio-box__input" id="check-box-3"
-                                            tabindex="-1" name="checkbox-radio" value="3" />
-                                        <label class="sc-radio-box__input-label" for="check-box-3" tabindex="0">
-                                            3
-                                        </label>
-                                    </div>
-                                    <div class="sc-radio-box">
-                                        <input type="radio" class="sc-radio-box__input" id="check-box-4"
-                                            tabindex="-1" name="checkbox-radio" value="4" />
-                                        <label class="sc-radio-box__input-label" for="check-box-4" tabindex="0">
-                                            4
-                                        </label>
-                                    </div>
-                                    <div class="sc-radio-box">
-                                        <input type="radio" class="sc-radio-box__input" id="check-box-5"
-                                            tabindex="-1" name="checkbox-radio" checked="checked" value="5" />
-                                        <label class="sc-radio-box__input-label" for="check-box-5" tabindex="0">
-                                            5
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="sc-cashone-pl-calc-variant__prompt-tenor defaultValues hide">
-                                    <div class="sc-cashone-pl-calc-variant__prompt-tenormsg">
-                                        Increase tenure to enjoy cashback
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="sc-cashone-pl-calc-variant__slider sc-cashone-pl-calc-variant__slider-monthlypayment">
-                                <div
-                                    class="sc-cashone-pl-calc-variant__content sc-cashone-pl-calc-variant__content-variant">
-                                    <div class="sc-cashone-pl-calc-variant__box">
-                                        <h3 class="sc-cashone-pl-calc-variant__title">
-                                            with monthly repayment of
-                                        </h3>
-                                    </div>
-                                </div>
-                            </div>
+    if (display) {
 
-                            <div class="sc-cashone-pl-calc-variant__slider sc-cashone-pl-calc-variant__slider-main">
-                                <div class="sc-cashone-pl-calc-variant__content">
-                                    <div
-                                        class="sc-cashone-pl-calc-variant__box sc-cashone-pl-calc-variant__box--variant">
-                                        <p
-                                            class="sc-cashone-pl-calc-variant__title sc-cashone-pl-calc-variant__title--variant">
-                                            <span class="sc-cashone-pl-calc-variant__currency">S$
-                                                <span
-                                                    class="sc-cashone-pl-calc-variant__amt monthly-repayment">362</span>
-                                                @
-                                            </span>
-                                            <span class="sc-cashone-pl-calc-variant__amt"> </span>
-                                            <span class="sc-cashone-pl-calc-variant__currency">2.88%p.a.</span>
-                                        </p>
+        Flickerlessly = window.Flickerlessly || {};
+        !function (A) {
+            "use strict";
+            var init = function (id, sel, callback, persist) {
+                var animationName = 'atNodeInserted' + id;
+                var cssStr = '@keyframes ' + animationName + ' {from {opacity:0.99} to {opacity:1} }\n';
+                cssStr += sel + '{animation-duration:0.001s;animation-name:' + animationName + ';visibility:hidden}';
+                var head = document.getElementsByTagName("head")[0];
+                if (head) {
+                    var style = document.createElement("style");
+                    style.setAttribute("type", "text/css");
+                    if (style.styleSheet)
+                        style.styleSheet.cssText = cssStr;
+                    else
+                        style.appendChild(document.createTextNode(cssStr));
+                    head.insertBefore(style, head.firstChild)
+                };
+                var _insertListener = function (event) {
+                    if (event.animationName === animationName && typeof event.target === 'object') {
+                        var isExecute = ((persist === true) || (persist === false && event.target.getAttribute('data-flk-success') === null)) ? true : false;
+                        if (console && console.info) console.info("Node " + sel + " ready! Execute: " + isExecute, event.target);
+                        if (typeof callback === 'function' && isExecute) {
+                            callback(event.target);
+                            event.target.setAttribute('data-flk-success', animationName);
+                        }
+                        event.target.style.visibility = 'visible';
+                    }
+                };
+                ['animationstart', 'MSAnimationStart', 'webkitAnimationStart'].forEach(function (item, index) {
+                    document.addEventListener(item, _insertListener, false);
+                });
+            };
+            A.onReady = function () {
+                for (var i = 0; i < arguments.length; i++) {
+                    var obj = arguments[i];
+                    var selector = obj.selector;
+                    var success = obj.success || null;
+                    var persist = obj.persist || false;
+                    var rand = Math.floor((Math.random() * 100) + 1);
+                    init(rand, selector, success, persist);
+                };
+            };
+        }(Flickerlessly);
 
-                                        <span class="sc-cashone-pl-calc-variant__eir">(EIR <span
-                                                class="eir-value">5.42</span>% p.a.)
-                                            <span class="sc-tooltip">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M12.125 1.25C18.131 1.25 23 6.118 23 12.125 23 18.131 18.131 23 12.125 23 6.118 23 1.25 18.131 1.25 12.125S6.118 1.25 12.125 1.25z"
-                                                        stroke="#2772C7" stroke-width="1.35" stroke-miterlimit="10">
-                                                    </path>
-                                                    <path d="M11.5 10.292h1v7h-1v-7zm0-4h1v2h-1v-2z" fill="#2772C7">
-                                                    </path>
-                                                </svg>
-                                                <span class="sc-tooltip__text">
-                                                    EIR is calculated excluding the first-year annual fee of S$199. Interest rate in your application will be based on your credit profile as determined by us.
-                                                </span>
-                                            </span>
-                                        </span>
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sc-cashone-pl-calc-variant__right">
-                            <div class="sc-cashone-pl-calc-variant__content">
-                                <div class="sc-cashone-pl-calc-variant__box sc-cashone-pl-calc-variant__box-result">
-                                    <div class="sc-cashone-pl-calc-variant__result-top">
-                                        <div class="sc-cashone-pl-calc-variant__result-cvp">
-                                            <div class="sc-cashone-pl-calc-variant__result-cvp-top">
-                                                <span class="sc-cashone-pl-calc-variant__cashbackrate-block">
-                                                    <span
-                                                        class="sc-cashone-pl-calc-variant__will only-desktop">You'll
-                                                        get&nbsp;</span>
-                                                    <span class="sc-cashone-pl-calc-variant__cashbackrate">1</span>%
-                                                    =
-                                                </span>
-                                                <span class="sc-cashone-pl-calc-variant__currency"><sup> S$</sup>
-                                                    <span
-                                                        class="sc-cashone-pl-calc-variant__cashback cashback-amount">400</span>
-                                                </span>
+        Flickerlessly.onReady(
+            {
+                selector: "#sc-lb-module-masthead-slider",
+                persist: true,
+                success: function (el) {
+                    el.style.opacity = "0 !important";
+                    el.style.height = "0px";
+                    if (!el.classList.contains("updatedCode")) {
+                        try {
+                            document.querySelector("#sc-lb-module-masthead-slider").outerHTML = `
+                            <div class="sc-banner-slider">
+                                <div class="sc-banner sc-banner--product sc-banner--no-mbl-img" role="banner">
+                                    <picture>
+                                        <source srcset="https://av.sc.com/sg/content/images/PL_CashOne-Offer-Refresh-September_Adobe_SC-PDP_1600x490_right-aligned.png"
+                                            media="(min-width: 681px)" />
+                                        <source srcset="https://av.sc.com/sg/content/images/PL_CashOne-Offer-Refresh-September_Adobe_SC.com-Homepage_768x350_Mobile-13-09.png"
+                                            media="(max-width: 680px)" />
+                                        <img src="https://av.sc.com/sg/content/images/PL_CashOne-Offer-Refresh-September_Adobe_SC-PDP_1600x490_right-aligned.png"
+                                            class="sc-banner__bg" loading="lazy" alt="Blue" />
+                                    </picture>
+                                    <div class="sc-content-wrapper">
+                                        <div class="sc-banner__content">
+                                            <h2 class="sc-banner__title">Still considering? Apply now for up to 2.5% cashback on your loan</h2>
+                                            <div class="sc-banner__desc">
+                                                <p>Apply now for up to 2.5% cashback on your loan</p>
                                             </div>
-                                            <div class="sc-cashone-pl-calc-variant__result-cvp-btm">
-                                                cashback
+                                            <div class="sc-banner-content__cvp-box">
+                                                <div class="sc-banner-content__cvp-title sc-rte">
+                                                    <p>Instant cash from 2.88% p.a. (EIR from 5.43% p.a.)</p>
+                                                    <p>Plus, get more back with our limited-time offer:</p>
+                                                    <ul>
+                                                        <li>2.5% cashback on your loan: S$50k or more</li>
+                                                        <li>2% cashback on your loan: S$40k to < S$50k</li>
+                                                        <li>1% cashback on your loan: S$15k to < S$40k</li>
+                                                    </ul>
+                                                
+                                                    <p>T&Cs apply.</p>
+                                                </div>
+                                            </div>
+                                            <ul class="sc-inline-buttons">
+                                                <li class="sc-inline-buttons__item ">
+                                                    <a href="https://ob.sc.com/sg/apply?product=280&campaign=9999"
+                                                        title="Continue Application" data-context="CashOne Personal Loan - Continue Application" class="sc-btn"
+                                                        target="_blank">
+                                                        <span class="sc-only-desktop">Continue Application</span>
+                                                        <span class="sc-only-mobile">Continue Application</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="sc-banner-przn-block">
+                                    <div class="sc-banner-przn-block__col sc-banner-przn-block__col--show">
+                                        <div class="sc-banner-przn-block__col-wrapper">
+                                            <div class="sc-cashone-pl-calc-variant sc-cashone-pl-calc-variant--is-border background-variant"
+                                                data-eir-fee="" data-apr="2.88" data-loan-period="yearly" data-cashback-multiplier="3"
+                                                data-cashback='{
+                                    "restricted": {
+                                        "min-amount": "15000",
+                                        "min-tenure": "3"
+                                    },
+                                    "unrestricted": {
+                                        "max-cashback": "4000",
+                                        "additional-amount": "100"
+                                    },
+                                    "cny": [
+                                        {
+                                        "min-amount": "0",
+                                        "max-amount": "14999",
+                                        "min-tenure": "3",
+                                        "max-tenure": "-1",
+                                        "infotext": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click here to enjoy 1% cashback, by increasing the loan amount to S$15,000 &raquo;</a>",
+                                        "infotext-below-amount-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click here to enjoy 1% cashback, by increasing the loan amount to S$15,000 with 3 years tenure or more &raquo;</a>",
+                                        "infotext-below-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click here to enjoy 1%. cashback, by increasing the loan tenure to 3 years or more &raquo;</a>",
+                                        "infoblockcolor": "right--gray",
+                                        "infobottomblockcolor": "--blue",
+                                        "spliderId":"#splide01",
+                                        "splideIndex":"0",
+                                        "cashbackRate": "0",
+                                        "infobottomblockimage": "https://av.sc.com/sg/content/images/cashone-calculator-gift-empty.png"
+                                        },
+                                        {
+                                        "min-amount": "15000",
+                                        "max-amount": "39999",
+                                        "min-tenure": "3",
+                                        "max-tenure": "-1",
+                                        "infotext": "<a class=&apos;nextlevelAmount&apos; data-nextLevelAmount=&apos;40000&apos;>Click here to enjoy 2% cashback by increasing loan amount to S$40,000 with 3 years tenure or more &raquo;</a>",
+                                        "infotext-below-amount-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click to meet the minimum S$15,000 loan amount and tenure of 3 years to enjoy 1% cashback Click now &raquo;</a>",
+                                        "infotext-below-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click here to enjoy 1% cashback, by increasing the loan tenure to 3 years or more &raquo;</a>",
+                                        "infoblockcolor": "default",
+                                        "infobottomblockcolor": "--blue",
+                                        "spliderId":"#splide01",
+                                        "splideIndex":"0",
+                                        "cashbackRate": "1",
+                                        "infobottomblockimage": "https://av.sc.com/sg/content/images/cashone-calculator-gift-empty.png"
+                                        },
+                                        {
+                                        "min-amount": "40000",
+                                        "max-amount": "49999",
+                                        "min-tenure": "3",
+                                        "max-tenure": "-1",
+                                        "infotext": "<a class=&apos;nextlevelAmount&apos; data-nextLevelAmount=&apos;50000&apos;>Click here to enjoy 2.5% cashback by increasing loan amount to S$50,000 with 3 years tenure or more &raquo;</a>",
+                                        "infotext-below-amount-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click to meet the minimum S$15,000 loan amount and tenure of 3 years to enjoy 1% cashback Click now &raquo;</a>",
+                                        "infotext-below-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click here to enjoy 2% cashback, by increasing the loan tenure to 3 years or more &raquo;</a>",
+                                        "infoblockcolor": "right--green-gradiant",
+                                        "infobottomblockcolor": "--blue",
+                                        "spliderId":"#splide01",
+                                        "splideIndex":"1",
+                                        "cashbackRate": "2",
+                                        "infobottomblockimage": "https://av.sc.com/sg/content/images/cashone-calculator-gift-empty.png"
+                                        },
+                                        {
+                                        "min-amount": "50000",
+                                        "max-amount": "250000",
+                                        "min-tenure": "3",
+                                        "max-tenure": "-1",
+                                        "infotext": "Congratulations! You will receive 2.5% cashback - our highest possible reward!",
+                                        "infotext-below-amount-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click to meet the minimum S$15,000 loan amount and tenure of 3 years to enjoy 1% cashback Click now &raquo;</a>",
+                                        "infotext-below-tenure": "<a class=&apos;defaultValues&apos; href=&apos;#&apos;>Click here to enjoy 2.5% cashback, by increasing the loan tenure to 3 years or more &raquo;</a>",
+                                        "infoblockcolor": "right--blue",
+                                        "infobottomblockcolor": "",
+                                        "spliderId":"#splide01",
+                                        "splideIndex":"2",
+                                        "cashbackRate": "2.5",
+                                        "infobottomblockimage": "https://av.sc.com/sg/content/images/cashone-calculator-gift.png"
+                                        }
+                                    ]
+                                    }'>
+                                                <div class="sc-content-wrapper">
+                                                    <div class="sc-cashone-pl-calc-variant__container">
+                                                        <div class="sc-badge sc-badge--blue">
+                                
+                                                            <span class="sc-badge__text">Limited Time Offer</span>
+                                                        </div>
+                                                        <div class="sc-cashone-pl-calc-variant__left">
+                                                            <div class="sc-cashone-pl-calc-variant__slider sc-cashone-pl-calc-variant__slider-main">
+                                                                <div class="sc-cashone-pl-calc-variant__content">
+                                                                    <div class="sc-cashone-pl-calc-variant__box-left">
+                                                                        <h3 class="sc-cashone-pl-calc-variant__title">
+                                                                            Get loan amount of
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="sc-cashone-pl-calc-variant__box-right">
+                                                                        S$
+                                                                        <input type="text" pattern="[0-9]+" inputmode="numeric"
+                                                                            class="sc-cashone-pl-calc-variant__input sc-cashone-pl-calc-variant__input--amount-value"
+                                                                            value="50,000" aria-label="Get loan amount of S$" data-max="250000"
+                                                                            data-min="1000" data-default="50,000" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-cashone-pl-calc-variant__prompt-msg hide">
+                                                                    Please enter amount between 1000 and 250000
+                                                                </div>
+                                                                <div class="sc-cashone-pl-calc-variant__prompt-amountmsg defaultValues hide">
+                                                                    Increase to S$15,000 to enjoy Cashback
+                                                                </div>
+                                                            </div>
+                                                            <div class="sc-cashone-pl-calc-variant__slider sc-cashone-pl-calc-variant__slider-main">
+                                                                <div class="sc-cashone-pl-calc-variant__loan-amount">
+                                                                    <div class="sc-amount-box">
+                                                                        <input type="radio" class="sc-amount-box__input" id="loan-amount-box-2"
+                                                                            tabindex="-1" name="loan-amount-radio" value="15,000" />
+                                                                        <label class="sc-amount-box__input-label" for="loan-amount-box-2"
+                                                                            tabindex="0">
+                                                                            15,000
+                                                                        </label>
+                                                                        <span class="sc-tooltip__cashback">
+                                                                            1% cashback
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="sc-amount-box">
+                                                                        <input type="radio" class="sc-amount-box__input" id="loan-amount-box-3"
+                                                                            tabindex="-1" name="loan-amount-radio" value="40,000" />
+                                                                        <label class="sc-amount-box__input-label" for="loan-amount-box-3"
+                                                                            tabindex="0">
+                                                                            40,000
+                                                                        </label>
+                                                                        <span class="sc-tooltip__cashback">
+                                                                            2% cashback
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="sc-amount-box">
+                                                                        <input type="radio" class="sc-amount-box__input" id="loan-amount-box-4"
+                                                                            tabindex="-1" name="loan-amount-radio" value="50,000" />
+                                                                        <label class="sc-amount-box__input-label" for="loan-amount-box-4"
+                                                                            tabindex="0">
+                                                                            50,000
+                                                                        </label>
+                                                                        <span class="sc-tooltip__cashback">
+                                                                            2.5% cashback
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                class="sc-cashone-pl-calc-variant__slider sc-cashone-pl-calc-variant__slider-tenor">
+                                                                <div
+                                                                    class="sc-cashone-pl-calc-variant__content sc-cashone-pl-calc-variant__content-variant">
+                                                                    <h3 class="sc-cashone-pl-calc-variant__title">
+                                                                        Loan period
+                                                                    </h3>
+                                                                </div>
+                                                                <div class="sc-cashone-pl-calc-variant__loan-period">
+                                                                    <div class="sc-radio-box">
+                                                                        <input type="radio" class="sc-radio-box__input" id="check-box-1"
+                                                                            tabindex="-1" name="checkbox-radio" value="1" />
+                                                                        <label class="sc-radio-box__input-label" for="check-box-1" tabindex="0">
+                                                                            1
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="sc-radio-box">
+                                                                        <input type="radio" class="sc-radio-box__input" id="check-box-2"
+                                                                            tabindex="-1" name="checkbox-radio" value="2" />
+                                                                        <label class="sc-radio-box__input-label" for="check-box-2" tabindex="0">
+                                                                            2
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="sc-radio-box">
+                                                                        <input type="radio" class="sc-radio-box__input" id="check-box-3"
+                                                                            tabindex="-1" name="checkbox-radio" value="3" />
+                                                                        <label class="sc-radio-box__input-label" for="check-box-3" tabindex="0">
+                                                                            3
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="sc-radio-box">
+                                                                        <input type="radio" class="sc-radio-box__input" id="check-box-4"
+                                                                            tabindex="-1" name="checkbox-radio" value="4" />
+                                                                        <label class="sc-radio-box__input-label" for="check-box-4" tabindex="0">
+                                                                            4
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="sc-radio-box">
+                                                                        <input type="radio" class="sc-radio-box__input" id="check-box-5"
+                                                                            tabindex="-1" name="checkbox-radio" checked="checked" value="5" />
+                                                                        <label class="sc-radio-box__input-label" for="check-box-5" tabindex="0">
+                                                                            5
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sc-cashone-pl-calc-variant__prompt-tenor defaultValues hide">
+                                                                    <div class="sc-cashone-pl-calc-variant__prompt-tenormsg">
+                                                                        Increase tenure to enjoy cashback
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                class="sc-cashone-pl-calc-variant__slider sc-cashone-pl-calc-variant__slider-monthlypayment">
+                                                                <div
+                                                                    class="sc-cashone-pl-calc-variant__content sc-cashone-pl-calc-variant__content-variant">
+                                                                    <div class="sc-cashone-pl-calc-variant__box">
+                                                                        <h3 class="sc-cashone-pl-calc-variant__title">
+                                                                            with monthly repayment of
+                                                                        </h3>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                
+                                                            <div class="sc-cashone-pl-calc-variant__slider sc-cashone-pl-calc-variant__slider-main">
+                                                                <div class="sc-cashone-pl-calc-variant__content">
+                                                                    <div
+                                                                        class="sc-cashone-pl-calc-variant__box sc-cashone-pl-calc-variant__box--variant">
+                                                                        <p
+                                                                            class="sc-cashone-pl-calc-variant__title sc-cashone-pl-calc-variant__title--variant">
+                                                                            <span class="sc-cashone-pl-calc-variant__currency">S$
+                                                                                <span
+                                                                                    class="sc-cashone-pl-calc-variant__amt monthly-repayment">362</span>
+                                                                                @
+                                                                            </span>
+                                                                            <span class="sc-cashone-pl-calc-variant__amt"> </span>
+                                                                            <span class="sc-cashone-pl-calc-variant__currency">2.88%p.a.</span>
+                                                                        </p>
+                                
+                                                                        <span class="sc-cashone-pl-calc-variant__eir">(EIR <span
+                                                                                class="eir-value">5.42</span>% p.a.)
+                                                                            <span class="sc-tooltip">
+                                                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                    <path
+                                                                                        d="M12.125 1.25C18.131 1.25 23 6.118 23 12.125 23 18.131 18.131 23 12.125 23 6.118 23 1.25 18.131 1.25 12.125S6.118 1.25 12.125 1.25z"
+                                                                                        stroke="#2772C7" stroke-width="1.35" stroke-miterlimit="10">
+                                                                                    </path>
+                                                                                    <path d="M11.5 10.292h1v7h-1v-7zm0-4h1v2h-1v-2z" fill="#2772C7">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <span class="sc-tooltip__text">
+                                                                                    EIR is calculated excluding the first-year annual fee of S$199. Interest rate in your application will be based on your credit profile as determined by us.
+                                                                                </span>
+                                                                            </span>
+                                                                        </span>
+                                                                        <p></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sc-cashone-pl-calc-variant__right">
+                                                            <div class="sc-cashone-pl-calc-variant__content">
+                                                                <div class="sc-cashone-pl-calc-variant__box sc-cashone-pl-calc-variant__box-result">
+                                                                    <div class="sc-cashone-pl-calc-variant__result-top">
+                                                                        <div class="sc-cashone-pl-calc-variant__result-cvp">
+                                                                            <div class="sc-cashone-pl-calc-variant__result-cvp-top">
+                                                                                <span class="sc-cashone-pl-calc-variant__cashbackrate-block">
+                                                                                    <span
+                                                                                        class="sc-cashone-pl-calc-variant__will only-desktop">You'll
+                                                                                        get&nbsp;</span>
+                                                                                    <span class="sc-cashone-pl-calc-variant__cashbackrate">1</span>%
+                                                                                    =
+                                                                                </span>
+                                                                                <span class="sc-cashone-pl-calc-variant__currency"><sup> S$</sup>
+                                                                                    <span
+                                                                                        class="sc-cashone-pl-calc-variant__cashback cashback-amount">400</span>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="sc-cashone-pl-calc-variant__result-cvp-btm">
+                                                                                cashback
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="sc-cashone-pl-calc-variant__result-btns">
+                                                                        <ul class="sc-inline-buttons">
+                                                                            <li class="sc-inline-buttons__item">
+                                                                                <a target="_blank"
+                                                                                    href="https://ob.sc.com/sg/apply?aggregator_type=pb-pl-cashone&product=280&campaign=9999"
+                                                                                    title="Apply Now"
+                                                                                    class="sc-btn sc-btn--medium sc-btn--secondary">Apply
+                                                                                    Now</a>
+                                                                            </li>
+                                                                            <li class="sc-inline-buttons__item">
+                                                                                <a target="_blank" href="https://www.sc.com/sg/borrow/loans/cashone"
+                                                                                    title="Learn More"
+                                                                                    class="sc-btn sc-btn--medium sc-btn--secondary">Learn
+                                                                                    More</a>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <!--<div class="sc-cashone-pl-calc-variant__result-btns-note">
+                                                For new clients only
+                                            </div>-->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                class="sc-cashone-pl-calc-variant__promo-box sc-cashone-pl-calc-variant__promo-box--blue">
+                                                                <div class="sc-cashone-pl-calc-variant__promo-icon">
+                                                                    <img class="sc-cashone-pl-calc-variant__promo-icon-img"
+                                                                        src="https://av.sc.com/sg/content/images/cashone-calculator-gift.png"
+                                                                        alt="" />
+                                                                </div>
+                                                                <div class="sc-cashone-pl-calc-variant__promo-text">
+                                                                    Congratulations! You are eligible to get
+                                                                    <a href="#" title="cashback">cashback</a> reward
+                                                                    <strong>and a chance to win 1 million points.</strong>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="sc-cashone-pl-calc-variant__result-btns">
-                                        <ul class="sc-inline-buttons">
-                                            <li class="sc-inline-buttons__item">
-                                                <a target="_blank"
-                                                    href="https://ob.sc.com/sg/apply?aggregator_type=pb-pl-cashone&product=280&campaign=9999"
-                                                    title="Apply Now"
-                                                    class="sc-btn sc-btn--medium sc-btn--secondary">Apply
-                                                    Now</a>
-                                            </li>
-                                            <li class="sc-inline-buttons__item">
-                                                <a target="_blank" href="https://www.sc.com/sg/borrow/loans/cashone"
-                                                    title="Learn More"
-                                                    class="sc-btn sc-btn--medium sc-btn--secondary">Learn
-                                                    More</a>
-                                            </li>
-                                        </ul>
-                                        <!--<div class="sc-cashone-pl-calc-variant__result-btns-note">
-                For new clients only
-            </div>-->
-                                    </div>
                                 </div>
                             </div>
-                            <div
-                                class="sc-cashone-pl-calc-variant__promo-box sc-cashone-pl-calc-variant__promo-box--blue">
-                                <div class="sc-cashone-pl-calc-variant__promo-icon">
-                                    <img class="sc-cashone-pl-calc-variant__promo-icon-img"
-                                        src="https://av.sc.com/sg/content/images/cashone-calculator-gift.png"
-                                        alt="" />
-                                </div>
-                                <div class="sc-cashone-pl-calc-variant__promo-text">
-                                    Congratulations! You are eligible to get
-                                    <a href="#" title="cashback">cashback</a> reward
-                                    <strong>and a chance to win 1 million points.</strong>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-`;
+                            `;
+                            document.querySelector("#sc-lb-module-masthead-slider .sc-banner .sc-inline-buttons a").addEventListener("click", function (event) { event.preventDefault(); event.stopPropagation(); window.open(applyNowURL); adobe.target.trackEvent({ "mbox": "mboxClickTrack", "params": { "clicked": "ContinueApplication" } }); });
 
-    // Your existing code
-    if (window.location.href === "https://www.sc.com/sg/") {
-        var offerExpirationTime = localStorage.getItem("offerExpirationTime");
-        var display = false;
-        let timeNow = new Date();
-
-        if (offerExpirationTime) {
-            if (Number(offerExpirationTime) > timeNow.getTime()) {
-                localStorage.setItem("offerExpirationTime", new Date().setDate(new Date().getDate() + 7));
-                display = true;
-                console.log("if", new Date(Number(localStorage.getItem("offerExpirationTime"))));
-            } else {
-                localStorage.removeItem("offerExpirationTime");
-                console.log("reset done");
-            }
-        } else {
-            localStorage.setItem("offerExpirationTime", new Date().setDate(new Date().getDate() + 7));
-            display = true;
-            console.log("(offerExpirationTime)", new Date(Number(localStorage.getItem("offerExpirationTime"))));
-        }
-
-        if (display) {
-
-            Flickerlessly = window.Flickerlessly || {};
-            !function (A) {
-                "use strict";
-                var init = function (id, sel, callback, persist) {
-                    var animationName = 'atNodeInserted' + id;
-                    var cssStr = '@keyframes ' + animationName + ' {from {opacity:0.99} to {opacity:1} }\n';
-                    cssStr += sel + '{animation-duration:0.001s;animation-name:' + animationName + ';visibility:hidden}';
-                    var head = document.getElementsByTagName("head")[0];
-                    if (head) {
-                        var style = document.createElement("style");
-                        style.setAttribute("type", "text/css");
-                        if (style.styleSheet)
-                            style.styleSheet.cssText = cssStr;
-                        else
-                            style.appendChild(document.createTextNode(cssStr));
-                        head.insertBefore(style, head.firstChild);
-                    };
-                    var _insertListener = function (event) {
-                        if (event.animationName === animationName && typeof event.target === 'object') {
-                            var isExecute = ((persist === true) || (persist === false && event.target.getAttribute('data-flk-success') === null)) ? true : false;
-                            if (console && console.info) console.info("Node " + sel + " ready! Execute: " + isExecute, event.target);
-                            if (typeof callback === 'function' && isExecute) {
-                                callback(event.target);
-                                event.target.setAttribute('data-flk-success', animationName);
-                            }
-                            event.target.style.visibility = 'visible';
-                        }
-                    };
-                    ['animationstart', 'MSAnimationStart', 'webkitAnimationStart'].forEach(function (item, index) {
-                        document.addEventListener(item, _insertListener, false);
-                    });
-                };
-                A.onReady = function () {
-                    for (var i = 0; i < arguments.length; i++) {
-                        var obj = arguments[i];
-                        var selector = obj.selector;
-                        var success = obj.success || null;
-                        var persist = obj.persist || false;
-                        var rand = Math.floor((Math.random() * 100) + 1);
-                        init(rand, selector, success, persist);
-                    };
-                };
-            }(Flickerlessly);
-
-            Flickerlessly.onReady(
-                {
-                    selector: "#sc-lb-module-masthead-slider",
-                    persist: true,
-                    success: function (el) {
-                        el.style.opacity = "0 !important";
-                        if (!el.classList.contains("updatedCode")) {
-                            try {
-                                el.outerHTML = updatedInnerHTML;
-                                document.querySelector(".sc-banner-slider .sc-inline-buttons a").addEventListener("click", function (event) {
-                                    event.preventDefault();
-                                    event.stopPropagation();
-                                    window.open(applyNowURL);
-                                    adobe.target.trackEvent({
-                                        "mbox": "mboxClickTrack",
-                                        "params": {
-                                            "clicked": "ContinueApplication"
-                                        }
-                                    });
-                                });
-
-                            } catch (e) { }
-                            el.classList.add("updatedCode");
-                        }
+                        } catch (e) { }
+                        el.classList.add("updatedCode");
                     }
                 }
-            );
-        }
-    }
-    
-    
-    // New code specifically for URLs containing "https://www.sc.com/sg/borrow/loans/cashone/"
-    if (window.location.href.includes("https://www.sc.com/sg/borrow/loans/cashone/")) {
-        var element = document.querySelector("#sc-lb-module-masthead-slider");
-        if (element) {
-            try {
-                element.innerHTML = updatedInnerHTML;
-                // Add event listener or any other code specific to this URL
-                document.querySelector(".sc-banner-slider .sc-inline-buttons a").addEventListener("click", function (event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    window.open(applyNowURL);
-                    adobe.target.trackEvent({
-                        "mbox": "mboxClickTrack",
-                        "params": {
-                            "clicked": "ContinueApplication"
-                        }
-                    });
-                });
-            } catch (e) {
-                console.error("Error updating HTML for CashOne page:", e);
             }
-        } else {
-            console.log("Element with ID #sc-lb-module-masthead-slider not found on the CashOne page.");
-        }
+        );
     }
-
 </script>
-
 
 <!-- Calculator JS -->
 <script>
